@@ -23,13 +23,24 @@ class ViewController: UIViewController {
     var seconds: String?
     var alpha: CGFloat!
     var previousTranslation: CGFloat!
+    let userSettings = SettingsBundleHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTimeLabel()
+        registerSettingsBundle()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimeLabel), userInfo: nil, repeats: true)
-        alpha = 1;
+        alpha = userSettings.GetAlpha();
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        defaultsChanged()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateTimeLabel()
+        alpha = userSettings.GetAlpha();
         previousTranslation = 0;
+        setTextColor()
+        setTextAlpha()
     }
     
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
@@ -39,29 +50,56 @@ class ViewController: UIViewController {
         else {
             let change = (translation.y - previousTranslation) / self.view.frame.size.height
             previousTranslation = translation.y
-            alpha = alpha - change
+            alpha = userSettings.GetAlpha() - change
             if alpha > 1 { alpha = 1 }
             if alpha < 0 { alpha = 0 }
-            updateTextAlpha()
+            userSettings.SetAlpha(alpha: alpha)
+            setTextAlpha()
+            
         }
-        NSLog("Alpha = " + String(describing: alpha))
     }
     
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.allButUpsideDown
     }
     
-    func updateTextAlpha() {
-        hourLabel.alpha = alpha;
-        minuteLabel.alpha = alpha;
-        secondLabel.alpha = alpha;
-        hourMinuteColonLabel.alpha = alpha;
-        minuteSecondColonLabel.alpha = alpha;
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
+    }
+    
+    @objc func defaultsChanged() {
+        setTextColor()
+        setTextAlpha()
+        updateTimeLabel()
+    }
+    
+    func setTextColor() {
+        let textColor = userSettings.GetColor()
+        hourLabel.textColor = textColor
+        minuteLabel.textColor = textColor
+        secondLabel.textColor = textColor
+        hourMinuteColonLabel.textColor = textColor
+        minuteSecondColonLabel.textColor = textColor
+    }
+    
+    func setTextAlpha() {
+        alpha = userSettings.GetAlpha()
+        hourLabel.alpha = alpha
+        minuteLabel.alpha = alpha
+        secondLabel.alpha = alpha
+        hourMinuteColonLabel.alpha = alpha
+        minuteSecondColonLabel.alpha = alpha
     }
     
     @objc func updateTimeLabel() {
         let hourFormatter = DateFormatter()
-        hourFormatter.dateFormat = "HH"
+        if userSettings.GetIsTwentyFourHourFormat() {
+            hourFormatter.dateFormat = "HH"
+        }
+        else {
+            hourFormatter.dateFormat = "h"
+        }
         hourLabel.text = hourFormatter.string(from: clock.currentTime as Date);
         
         let minuteFormatter = DateFormatter()
@@ -82,6 +120,7 @@ class ViewController: UIViewController {
         if let timer = self.timer {
             timer.invalidate()
         }
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

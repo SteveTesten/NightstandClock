@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082F21431FF2F76D0002B840 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 082F21421FF2F76D0002B840 /* Settings.bundle */; };
+		082F21451FF300BE0002B840 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082F21441FF300BE0002B840 /* SettingsBundleHelper.swift */; };
 		089FC23D1FF011B50070B7B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089FC23C1FF011B50070B7B0 /* AppDelegate.swift */; };
 		089FC23F1FF011B50070B7B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089FC23E1FF011B50070B7B0 /* ViewController.swift */; };
 		089FC2421FF011B50070B7B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 089FC2401FF011B50070B7B0 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		082F21421FF2F76D0002B840 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		082F21441FF300BE0002B840 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		089FC2391FF011B50070B7B0 /* NightstandClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightstandClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		089FC23C1FF011B50070B7B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		089FC23E1FF011B50070B7B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				089FC23C1FF011B50070B7B0 /* AppDelegate.swift */,
+				082F21421FF2F76D0002B840 /* Settings.bundle */,
 				089FC23E1FF011B50070B7B0 /* ViewController.swift */,
 				089FC2401FF011B50070B7B0 /* Main.storyboard */,
 				089FC2461FF011B50070B7B0 /* Assets.xcassets */,
@@ -109,6 +114,7 @@
 				089FC24B1FF011B50070B7B0 /* Info.plist */,
 				089FC2431FF011B50070B7B0 /* NightstandClock.xcdatamodeld */,
 				089FC26D1FF01CC00070B7B0 /* Clock.swift */,
+				082F21441FF300BE0002B840 /* SettingsBundleHelper.swift */,
 			);
 			path = NightstandClock;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082F21431FF2F76D0002B840 /* Settings.bundle in Resources */,
 				089FC24A1FF011B50070B7B0 /* LaunchScreen.storyboard in Resources */,
 				089FC2471FF011B50070B7B0 /* Assets.xcassets in Resources */,
 				089FC2421FF011B50070B7B0 /* Main.storyboard in Resources */,
@@ -268,6 +275,7 @@
 				089FC23F1FF011B50070B7B0 /* ViewController.swift in Sources */,
 				089FC23D1FF011B50070B7B0 /* AppDelegate.swift in Sources */,
 				089FC26E1FF01CC00070B7B0 /* Clock.swift in Sources */,
+				082F21451FF300BE0002B840 /* SettingsBundleHelper.swift in Sources */,
 				089FC2451FF011B50070B7B0 /* NightstandClock.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
