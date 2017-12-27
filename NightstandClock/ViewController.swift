@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimeLabel), userInfo: nil, repeats: true)
         alpha = userSettings.GetAlpha();
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.defaultsChanged), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         defaultsChanged()
     }
     

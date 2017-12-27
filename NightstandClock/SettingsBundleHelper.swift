@@ -28,21 +28,21 @@ class SettingsBundleHelper {
         let colorValue = UserDefaults.standard.string(forKey: SettingsBundleKeys.ColorKey)
         
         switch colorValue {
-        case "1"?:
+        case "0"?:
             return UIColor.blue
-        case "2"?:
+        case "1"?:
             return UIColor.brown
-        case "3"?:
+        case "2"?:
             return UIColor.cyan
-        case "4"?:
+        case "3"?:
             return UIColor.green
-        case "5"?:
+        case "4"?:
             return UIColor.magenta
-        case "6"?:
+        case "5"?:
             return UIColor.orange
-        case "7"?:
+        case "6"?:
             return UIColor.purple
-        case "8"?:
+        case "7"?:
             return UIColor.red
         case "9"?:
             return UIColor.yellow

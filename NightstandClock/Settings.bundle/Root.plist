@@ -10,7 +10,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>24-Hour Clock</string>
+			<string>24-Hour Format</string>
 			<key>Key</key>
 			<string>hour_format_preference</string>
 			<key>DefaultValue</key>
@@ -37,10 +37,9 @@
 				<string>9</string>
 			</array>
 			<key>DefaultValue</key>
-			<string>0</string>
+			<string>8</string>
 			<key>Titles</key>
 			<array>
-				<string>White</string>
 				<string>Blue</string>
 				<string>Brown</string>
 				<string>Cyan</string>
@@ -49,6 +48,7 @@
 				<string>Orange</string>
 				<string>Purple</string>
 				<string>Red</string>
+				<string>White</string>
 				<string>Yellow</string>
 			</array>
 		</dict>
